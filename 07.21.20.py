@@ -1,7 +1,11 @@
 #import myfile
 import random
 import math
-#
+import json
+import csv
+import struct
+
+
 # print(dir(myfile))
 #
 # dir(myfile)
@@ -30,6 +34,7 @@ print((1, 'spam', 4, 'U'))
 print(tuple('spam'))
 
 # file object-type
+#
 # open('eggs.txt'), open(r'C:\ham.bin', 'wb')
 
 # Sets
@@ -328,6 +333,152 @@ print(classmethod(foo))
 print(L)
 print(L.append(L))
 print(type(L.append(L)))
+
+
+repr('hellomyname')
+print(repr(234))
+print(type(repr(234)))
+print( chr(115))
+
+
+S = 'spam'
+S = S +'spam'
+print(S)
+S = 'splot'
+S = S.replace('pl','foo')
+print(S)
+'This is %s %s'.format('bull', 'shit')
+print('%s %s %d'.format('bull', 'shit', 48), '%s %s %d' % ('bull', 'shit', 48), 'This is {} {}'.format('bull','shit'), '{0} {1}'.format('kill', 'them'))
+A = 'foo'
+B = 73.23423
+print('{0} {1}'.format(A, B))
+
+
+
+
+S = 'spam'
+print(S.find('sp'))
+
+template = '{0} {1} {2} {3}'
+cha = template.format('hello', 'what', 'is', 'it')
+print(cha)
+for x in cha: print(x)
+foo = 'lets go outside and get a burger'
+for x in foo: print(foo)
+for x in foo: print(x)
+
+L = [x**2 for x in range(5)]
+print(L)
+print(['Nein'] * 8)
+
+for x in [1,2,3]: print(x)
+for x in [1,2,3,[4,5]]: print(x)
+foo = [1,2,3,[4,5]]
+
+name = dict(first = 'bob', last ='smith')
+rec = dict(name=name, job=['dev', 'mgr' ], age=40.5)
+print(rec)
+
+json.dumps(rec)
+S = json.dumps(rec)
+print(S)
+
+O = json.loads(S)
+print(O)
+print(O == rec)
+
+json.dump(rec, fp=open('testjson.txt', 'w'), indent=4)
+print(open('testjson.txt').read())
+
+P = json.load(open('testjson.txt'))
+P
+print(P)
+#
+# rdr = csv.reader(open('csvdata.txt'))
+# for row in rdr: print(row)
+
+F = open('data.bin', 'wb')
+data = struct.pack('>i4sh', 7, b'spam', 8)
+print(data)
+F.write(data)
+F.close()
+
+F = open('data.bin', 'rb')
+data = F.read()
+print(data)
+values = struct.unpack('>i4sh', data)
+print(values)
+dir(print())
+print(dir(print()))
+
+# the == operator tsts value equivalence python performs and equivalence test, comparing all nexsted objects recursively
+#the is oeprator tests object identity python test whether the two are really the same object
+#Dictionaries are eqal if their sorted (key, value) lists are equal.
+
+print(True == abs(-1))
+
+#This is a generator function
+
+def gen(n):
+    for i in n:
+        print(n)
+        yield i*2
+
+#This is a namespace
+x = 'old'
+def function():
+    global x, y; x = 'new'
+
+def outer():
+    x = 'old'
+    def function():
+        nonlocal x; x = 'new'
+
+# class SubClass(Superclass):
+
+#     staticData = []
+#     def method(self): pass
+#
+
+x = [1,2,3]
+print(x)
+
+# while True:
+#     reply = input('Input here:')
+#     if reply == 'stop': break
+#     print(reply.upper())
+
+
+# while True:
+#     reply = input('input here:')
+#     if reply == 'stop': break
+#     print(reply)
+#
+
+# while True:
+#     reply = input('hello')
+#     if reply == 'stop': pass
+#     print(reply)
+#
+
+# while True:
+#     reply = input('Input Here')
+#     if reply == 'stop':
+#         print('have an ice day')
+#         break
+#     try:
+#         print(float(reply))
+#     except:
+#         print('bad bad bad bad bad bad bad')
+
+
+
+
+
+
+
+
+
 
 
 
